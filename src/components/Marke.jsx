@@ -29,7 +29,9 @@ export default class Marke extends Component{
 					<div className="md-editor">
 						<textarea id="editor-area" onChange={this._fresh.bind(this)} ref="editor"></textarea>	
 					</div>
-					<div className="md-preview markdown" dangerouslySetInnerHTML = {{__html:mdDocument.mdDocument}}></div>
+					<div className="md-preview">
+						<div className="markdown" dangerouslySetInnerHTML = {{__html:mdDocument.mdDocument}}></div>
+					</div>
 				</div>
 			</div>
 		)

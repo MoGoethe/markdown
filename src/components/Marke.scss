@@ -21,7 +21,7 @@ $blue:#108ee9;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	overflow: hidden;
-	height:577px;
+	height:557px;
 	@include box();
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 	background-color:#fff;
@@ -133,7 +133,8 @@ $blue:#108ee9;
 		}
 		.md-preview{
 			width: 50%;
-			min-height: 100%;
+			height: 100%;
+			overflow:auto;
 			background-color:#f3f3f3;
 			float: right;
 			@include box();
@@ -145,6 +146,8 @@ $blue:#108ee9;
 }
 
 .markdown {
+	width:100%;
+	min-height:100%;
   h1, h2 {
     padding-bottom: 8px;
     border-bottom: 1px dotted #ccc;
