@@ -11,21 +11,15 @@ state = {
 */
 
 
-const initialState = fromJS({
+const INITIAL_STATE = fromJS({
 	isfullScreen :false,
 })
 
-const reducer = ( state =initialState, action)=>{
-	return state.toJS()
+const reducer = ( state =INITIAL_STATE, action)=>{
+
+	return state
 }
 
-export const toggleFullsrceen = (state,action) =>{
-	console.log("a");
-	switch(action.type){
-		case TOGGLEFULLSCREEN :
-			state.update("isfullScreen", () =>!state.get("isfullScreen"));
-			return state.toJS();
-	}
-}
+
 
 export default reducer

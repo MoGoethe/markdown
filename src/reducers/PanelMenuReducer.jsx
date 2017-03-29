@@ -1,12 +1,30 @@
 import { List , Map,toJS ,fromJS } from "immutable"
+import { combineReducers } from 'redux'
+import { TOGGLEFULLSCREEN } from "../actions/index.jsx"
 
-const initialState1 = fromJS({
-	state1:''
+
+const INITIAL_STATE = fromJS({
+	isfullScreen :false,
 })
 
-const reducer = ( state1=initialState1 , action)=>{
+const reducer = ( state1=INITIAL_STATE , action)=>{
 
 	return state1
 }
 
-export default reducer
+
+const toggleFullsrceen = (state=INITIAL_STATE,action) =>{
+	switch(action.type){
+		case TOGGLEFULLSCREEN :
+			return state.update("isfullScreen", () => !state.get("isfullScreen"));
+		default :
+			return state;
+	}
+}
+
+const reducers = combineReducers({
+	reducer,
+	toggleFullsrceen
+})
+
+export default reducers
