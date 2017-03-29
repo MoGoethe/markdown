@@ -1,9 +1,9 @@
 import React from "react"
-import style from "./index.sass"
+import  "./ArticleTitle.scss"
 
  const ArticleTitle = () =>(
  	<div className="editor-title">
-		<input className="textbox" name="title" type="text" value="" placeholder="来，取个响亮的标题吧" />
+		<input className="textbox" name="title" type="text"  placeholder="来，取个响亮的标题吧" />
 	</div>
  )
 

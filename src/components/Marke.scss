@@ -1,0 +1,126 @@
+@mixin floatFun(){
+    content: '.';
+    display: block;
+    visibility: hidden;
+    clear: both;
+    width: 100%;
+    height: 0;
+    font-size: 0;
+    zoom: 1;
+}
+@mixin box(){
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+$blue:#108ee9;
+
+.md-panel{
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	overflow: hidden;
+	height:577px;
+	@include box();
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	background-color:#fff;
+	position:relative;
+	&.md-full-screen{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 9;
+		height: 100%;
+	}
+	.md-menubar{
+		height: 36px;
+		border-bottom:1px solid #ccc;
+		position:absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 11;
+		&:after{
+			@include floatFun()
+		}
+		.text-menubar{
+			float:left;
+			width: 50%;
+			@include box();
+			border-right:1px solid #ccc;
+		}
+		.panel-menubar{
+			float:right;
+		}
+		.menu-list{
+			list-style:none;
+			padding: 0 5px;
+			margin: 0;
+			&:after{
+				@include floatFun()
+			}
+			.menu-list-iem{
+				width: 40px;
+				height: 36px;
+				text-align: center;
+				line-height: 36px;
+				cursor: pointer;
+				display: block;
+				float:left;
+				transition: background-color .3s;
+				position: relative;
+				i{
+					color: #999;
+					transition: color .3s;
+				}
+				&:hover {
+					background-color:#e9e9e9;
+					i{
+						color: $blue;
+					}
+				}
+				&.span-line{
+					height: 18px;
+					width: 1px;
+					background-color:#ccc;
+					margin:9px 10px;
+				}
+			}
+		}
+	}
+	.md-editor-preview{
+		width: 100%;
+		height: 100%;
+		padding-top: 37px;
+		@include box();
+		&:after{
+			@include floatFun();
+		}
+		.md-editor{
+			width: 50%;
+			height: 100%;
+			float: left;
+			border-right:1px solid #ccc;
+			@include box();
+			textarea{
+				border-style: none;
+				resize: none;
+				@include box();
+				outline: 0;
+				height: 100%;
+				width: 100%;
+				padding: 10px 15px 0;
+			}
+		}
+		.md-preview{
+			width: 50%;
+			min-height: 100%;
+			background-color:#f3f3f3;
+			float: right;
+			@include box();
+			padding: 10px 20px;
+		}
+	}
+}
+
+

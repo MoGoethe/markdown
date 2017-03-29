@@ -1,0 +1,28 @@
+body{
+	background-color:#eee;
+}
+.container{
+	width:100%;
+	margin:0 auto;
+	max-width:1560px;
+	min-width:960px;
+	padding:20px 0;
+}
+.editor-title{
+	font-size:18px;
+	.textbox{
+		line-height: 1.5;
+		font-size: 18px;
+		outline: none;
+	}
+}
+.textbox{
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 7px 10px;
+	height: 44px;
+	line-height:30px;
+	width: 100%;
+	box-sizing:border-box;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
