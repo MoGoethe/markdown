@@ -1,30 +1,26 @@
-import { List , Map,toJS ,fromJS } from "immutable"
-import { combineReducers } from 'redux'
-import { TOGGLEFULLSCREEN } from "../actions/index.jsx"
+import { fromJS } from "immutable"
+import { TOGGLEFULLSCREEN,TOGGLEMDMODEL } from "../actions/index.jsx"
+import { toggelmdmodel , togglefullscreen } from "./PanelCore.jsx"
 
 
 const INITIAL_STATE = fromJS({
-	isfullScreen :false,
+	isFullScreen :false,
+	isEditorModel:false,
+	isMixinModel:true,
+	isPreviewModel:false,
+	model:"md-editor-preview",
 })
-
-const reducer = ( state1=INITIAL_STATE , action)=>{
-
-	return state1
-}
 
 
 const toggleFullsrceen = (state=INITIAL_STATE,action) =>{
+
 	switch(action.type){
 		case TOGGLEFULLSCREEN :
-			return state.update("isfullScreen", () => !state.get("isfullScreen"));
+			return togglefullscreen(state);
+		case TOGGLEMDMODEL :
+			return toggelmdmodel(state,action.model);
 		default :
 			return state;
 	}
 }
-
-const reducers = combineReducers({
-	reducer,
-	toggleFullsrceen
-})
-
-export default reducers
+export default toggleFullsrceen

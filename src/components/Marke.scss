@@ -17,6 +17,7 @@ $blue:#108ee9;
 
 .md-panel{
 	width: 100%;
+	min-width:960px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	overflow: hidden;
@@ -46,7 +47,6 @@ $blue:#108ee9;
 		.text-menubar{
 			float:left;
 			width: 50%;
-			@include box();
 			border-right:1px solid #ccc;
 		}
 		.panel-menubar{
@@ -73,6 +73,7 @@ $blue:#108ee9;
 					color: #999;
 					transition: color .3s;
 				}
+				&.active,
 				&:hover {
 					background-color:#e9e9e9;
 					i{
@@ -93,6 +94,22 @@ $blue:#108ee9;
 		height: 100%;
 		padding-top: 37px;
 		@include box();
+		&.full-editor{
+			.md-editor{
+				width: 100%;
+			}
+			.md-preview{
+				width: 0%;
+			}
+		}
+		&.full-preview{
+			.md-editor{
+				width: 0%;
+			}
+			.md-preview{
+				width: 100%;
+			}
+		}
 		&:after{
 			@include floatFun();
 		}
@@ -100,7 +117,8 @@ $blue:#108ee9;
 			width: 50%;
 			height: 100%;
 			float: left;
-			border-right:1px solid #ccc;
+
+			transition: width .35s ease-out;
 			@include box();
 			textarea{
 				border-style: none;
@@ -110,6 +128,7 @@ $blue:#108ee9;
 				height: 100%;
 				width: 100%;
 				padding: 10px 15px 0;
+
 			}
 		}
 		.md-preview{
@@ -119,6 +138,8 @@ $blue:#108ee9;
 			float: right;
 			@include box();
 			padding: 10px 20px;
+			transition: width .35s ease-out;
+			border-left:1px solid #ccc;
 		}
 	}
 }

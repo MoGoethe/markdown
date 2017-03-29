@@ -1,52 +1,37 @@
 import React from "react"
 import { connect } from "react-redux"
 import "./Marke.scss"
-import { toggleFullsrceen } from "../actions/index.jsx"
+import PanelMenubar from "./PanelMenubar.jsx"
+import TextMenubar from "./TextMenubar.jsx"
+import { toJS } from "immutable"
+import marked from 'marked'
+import { onfresh } from "../reducers/MarkeReducer.jsx"
 
-
-const Marke = ({isfullScreen,toggleFullsrceen}) =>{
-	console.log(isfullScreen);
+const Marke = ({modelState,mdDocument,onfresh}) =>{
+	console.log(mdDocument);
 	return(
-		<div className={isfullScreen?"md-panel md-full-screen" : "md-panel"}>
+		<div className={modelState.isFullScreen ? "md-panel md-full-screen" : "md-panel"}>
 			<div className="md-menubar">
-				<div className="text-menubar">
-					<ul className="menu-list">
-						<li className="menu-list-iem" title="加粗"><i className="fa fa-bold"></i></li>
-						<li className="menu-list-iem" title="斜体"><i className="fa fa-italic"></i></li>
-						<li className="menu-list-iem span-line"></li>
-						<li className="menu-list-iem" title="链接"><i className="fa fa-link"></i></li>
-						<li className="menu-list-iem" title="引用"><i className="fa fa-outdent"></i></li>
-						<li className="menu-list-iem" title="代码段"><i className="fa fa-code"></i></li>
-						<li className="menu-list-iem" title="图片"><i className="fa fa-picture-o"></i></li>
-						<li className="menu-list-iem span-line"></li>
-						<li className="menu-list-iem" title="有序列表"><i className="fa fa-list-ol"></i></li>
-						<li className="menu-list-iem" title="无序列表"><i className="fa fa-list-ul"></i></li>
-						<li className="menu-list-iem" title="标题"><i className="fa fa-header"></i></li>
-					</ul>
-				</div>
-				<div className="panel-menubar">
-					<ul className="menu-list">
-						<li className="menu-list-iem" title="全屏" onClick={()=>toggleFullsrceen()}><i className="fa fa-arrows-alt"></i></li>
-						<li className="menu-list-iem span-line"></li>
-						<li className="menu-list-iem" title="编辑模式"><i className="fa fa-eye"></i></li>
-						<li className="menu-list-iem" title="混合模式"><i className="fa fa-columns"></i></li>
-						<li className="menu-list-iem" title="预览模式"><i className="fa fa-pencil"></i></li>
-					</ul>
-				</div>
+				<TextMenubar />
+				<PanelMenubar />
 			</div>
-			<div className="md-editor-preview">
+			<div className={modelState.model}>
 				<div className="md-editor">
-					<textarea id="editor-area"></textarea>	
+					<textarea id="editor-area" ></textarea>	
 				</div>
-				<div className="md-preview markdown"></div>
+				<div className="md-preview markdown" ></div>
 			</div>
 		</div>
 	)
 }
 
 const mapStateToProps = (state) =>{
-	const isfullScreen =state.PanelMenuReducer.toggleFullsrceen.get("isfullScreen");
-	return {isfullScreen:isfullScreen}
+	const modelState =state.PanelMenuReducer.toJS();
+	const mdDocument = state.MarkeReducer.toJS();
+	return {
+		modelState : modelState,
+		mdDocument: mdDocument,
+	}
 }
 
-export default connect( mapStateToProps, {toggleFullsrceen} )(Marke);
+export default connect( mapStateToProps,{onfresh} )(Marke);

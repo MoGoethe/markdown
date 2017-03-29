@@ -4,7 +4,10 @@ import { TOGGLEFULLSCREEN } from "../actions/index.jsx"
 /*
 
 state = {
-	isfullScreen :fale,
+	isFullScreen :false,
+	isEditorModel:false,
+	isMixinModel:true,
+	isPreviewModel:false,
 }
 
 
@@ -12,7 +15,6 @@ state = {
 
 
 const INITIAL_STATE = fromJS({
-	isfullScreen :false,
 })
 
 const reducer = ( state =INITIAL_STATE, action)=>{
