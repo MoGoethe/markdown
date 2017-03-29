@@ -15,10 +15,3 @@ export const toggleMDModel = model =>dispatch => {
 		model:model,
 	})
 }
-
-export const onfresh = (newDocument) => dispatch =>{
-	dispatch({
-		type:FRESHDOCUMENT,
-		mdDocument:newDocument,
-	})
-}

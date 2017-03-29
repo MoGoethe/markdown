@@ -10,10 +10,10 @@ const MDDOCUMENT_STATE = fromJS({
 	mdDocument:'',
 })
 
-const freshMdDocument = ( state=MDDOCUMENT_STATE , action ) => {
+const freshMdDocument = ( state=MDDOCUMENT_STATE , action) => {
 	switch(action.type){
 		case FRESHDOCUMENT :
-			return freshDocument(action.mdDocument);
+			return freshDocument(state,action.mdDocument);
 		default :
 			return state; 
 	}

@@ -7,24 +7,19 @@ import ArticleTags from '../components/ArticleTags.jsx'
 import Marke from '../components/Marke.jsx'
 //import {ADD_GOODS,CHECK_OUT} from './action/action.jsx';
 
-class App extends Component {
-
-
-
-	render(){
-		return(
-			<div>
-				<h2>写文章</h2>
-				<ArticleTitle />
-				<ArticleTags />
-				<Marke />
-			</div>
-		)
-	}
+const App = state =>{
+	return(
+		<div>
+			<h2>写文章</h2>
+			<ArticleTitle />
+			<ArticleTags />
+			<Marke mdState={state} />
+		</div>
+	)
 }
 
-const mapStateToProps = state =>{
-	return {state:''};
-}
+const mapStateToProps = state =>(
+	{state:state,}
+)
 
 export default connect(mapStateToProps)(App);

@@ -5,8 +5,9 @@ body{
 	width:100%;
 	margin:0 auto;
 	max-width:1560px;
-	min-width:960px;
-	padding:20px 0;
+	min-width:950px;
+	padding:0 50px;
+	box-sizing:border-box;
 }
 .editor-title{
 	font-size:18px;
