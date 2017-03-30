@@ -17,12 +17,8 @@ const PanelMenubar = ({ modelState,toggleFullsrceen,toggleMDModel }) =>{
 	)
 }
 
-const mapStateToProps = state =>{
-	const modelState =state.PanelMenuReducer.toJS();
-
-	return {
-		modelState : modelState,
-	}
-}
+const mapStateToProps = state =>(
+	{ modelState:state.PanelMenuReducer.toJS() }
+)
 
 export default connect( mapStateToProps , { toggleFullsrceen,toggleMDModel } )( PanelMenubar )

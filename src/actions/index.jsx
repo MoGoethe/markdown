@@ -1,6 +1,7 @@
 export const TOGGLEFULLSCREEN = 'TOGGLEFULLSCREEN'
 export const TOGGLEMDMODEL = 'TOGGLEMDMODEL'
 export const FRESHDOCUMENT = 'FRESHDOCUMENT'
+export const GETEDITRODOM ='GETEDITRODOM'
 
 
 export const toggleFullsrceen = () => dispatch =>{
@@ -16,54 +17,58 @@ export const toggleMDModel = model =>dispatch => {
 	})
 }
 
-const _preInputText = (text, preStart, preEnd) => {
-	const start = this.textControl.selectionStart
-	const end = this.textControl.selectionEnd
-	const origin = this.textControl.value
+const _preInputText = (text, preStart, preEnd,editorDom) => {
+	const start = editorDom.selectionStart
+	const end = editorDom.selectionEnd
+	const origin = editorDom.value
 
 	if (start !== end) {
 		const exist = origin.slice(start, end)
 		text = text.slice(0, preStart) + exist + text.slice(preEnd)
 		preEnd = preStart + exist.length
 	}
-	this.textControl.value = origin.slice(0, start) + text + origin.slice(end)
+	editorDom.value = origin.slice(0, start) + text + origin.slice(end)
 
-	this.textControl.setSelectionRange(start + preStart, start + preEnd)
-	this.setState({ result: marked(this.textControl.value) })
+	editorDom.setSelectionRange(start + preStart, start + preEnd)
+	
+	return{
+		type:FRESHDOCUMENT,
+		mdDocument:editorDom.value,
+	}
 }
 
-export const boldText = () => {
-	_preInputText("**加粗文字**", 2, 6)
+export const boldText = (editorDom ,dispatch )=> {
+	dispatch(_preInputText("**加粗文字**", 2, 6 , editorDom))
 }
 
-export const italicText = () => {
-	_preInputText("_斜体文字_", 1, 5)
+export const italicText = (editorDom ,dispatch ) => {
+	dispatch(_preInputText("_斜体文字_", 1, 5 , editorDom))
 }
 
-export const linkText = () => {
-	_preInputText("[链接文本](www.yourlink.com)", 1, 5)
+export const linkText = (editorDom ,dispatch ) => {
+	dispatch(_preInputText("[链接文本](www.yourlink.com)", 1, 5 , editorDom))
 }
 
-export const blockquoteText = () => {
-	_preInputText("> 引用", 2, 4)
+export const blockquoteText = (editorDom ,dispatch ) => {
+	dispatch(_preInputText("> 引用", 2, 4 , editorDom))
 }
 
-export const codeText = () => {
-	_preInputText("```\ncode block\n```", 4, 14)
+export const codeText = (editorDom ,dispatch ) => {
+	dispatch(_preInputText("```\ncode block\n```", 4, 14 , editorDom))
 }
 
-export const pictureText = () => {
-	_preInputText("![alt](www.yourlink.com)", 2, 5)
+export const pictureText = (editorDom ,dispatch ) => {
+	dispatch(_preInputText("![alt](www.yourlink.com)", 2, 5 , editorDom))
 }
 
-export const listUlText = () => {
-	_preInputText("- 无序列表项0\n- 无序列表项1", 2, 8)
+export const listUlText = (editorDom ,dispatch ) => {
+	dispatch(_preInputText("- 无序列表项0\n- 无序列表项1", 2, 8 , editorDom))
 }
 
-export const listOlText = () => {
-	_preInputText("1. 有序列表项0\n2. 有序列表项1", 3, 9)
+export const listOlText = (editorDom ,dispatch ) => {
+	dispatch(_preInputText("1. 有序列表项0\n2. 有序列表项1", 3, 9 , editorDom))
 }
 
-export const headerText = () => {
-	_preInputText("## 标题", 3, 5)
+export const headerText = (editorDom ,dispatch ) => {
+	dispatch(_preInputText("## 标题", 3, 5 , editorDom))
 }
