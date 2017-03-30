@@ -147,7 +147,6 @@ $blue:#108ee9;
 
 .markdown {
 	width:100%;
-	min-height:100%;
   h1, h2 {
     padding-bottom: 8px;
     border-bottom: 1px dotted #ccc;
@@ -175,7 +174,6 @@ $blue:#108ee9;
 
     code {
       font-size: inherit;
-      color: inherit;
       padding: 0;
       background-color: transparent;
     }
