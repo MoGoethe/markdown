@@ -2,6 +2,8 @@ export const TOGGLEFULLSCREEN = 'TOGGLEFULLSCREEN'
 export const TOGGLEMDMODEL = 'TOGGLEMDMODEL'
 export const FRESHDOCUMENT = 'FRESHDOCUMENT'
 export const GETEDITRODOM ='GETEDITRODOM'
+export const ADDARTICLETAG = 'ADDARTICLETAG'
+export const DELETEARTICLETAG = 'DELETEARTICLETAG'
 
 
 export const toggleFullsrceen = () => dispatch =>{
@@ -14,6 +16,20 @@ export const toggleMDModel = model =>dispatch => {
 	dispatch({
 		type:TOGGLEMDMODEL,
 		model:model,
+	})
+}
+
+export const addArticleTag = (tagName,dispatch) =>{
+	dispatch({
+		type: ADDARTICLETAG,
+		tagName: tagName,
+	})
+}
+
+export const deleteArticleTag = (id, dispatch) =>{
+	dispatch({
+		type:DELETEARTICLETAG,
+		id:id,
 	})
 }
 

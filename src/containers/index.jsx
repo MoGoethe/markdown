@@ -12,14 +12,26 @@ const App = state =>{
 		<div>
 			<h2>写文章</h2>
 			<ArticleTitle />
-			<ArticleTags />
-			<Marke mdState={state} />
+			<ArticleTags 
+				ArticleTagState = {state.ArticleTagState} 
+				dispatch={state.dispatch} 
+			/>
+			<Marke 
+				markeState={state.markeState} 
+				dispatch={state.dispatch} 
+				markePanelState = {state.markePanelState} 
+			/>
 		</div>
 	)
 }
 
-const mapStateToProps = state =>(
-	{state:state,}
-)
+const mapStateToProps = state =>{
+
+	return {
+		ArticleTagState:state.ArticleTagsReducer,
+		markeState:state.MarkeReducer,
+		markePanelState:state.PanelMenuReducer,
+	}
+}
 
 export default connect(mapStateToProps)(App);
