@@ -1,3 +1,6 @@
+body{
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+}
 @mixin floatFun(){
     content: '.';
     display: block;
@@ -128,7 +131,8 @@ $blue:#108ee9;
 				height: 100%;
 				width: 100%;
 				padding: 10px 15px 0;
-
+				font-size:15px;
+				font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
 			}
 		}
 		.md-preview{
@@ -162,7 +166,7 @@ $blue:#108ee9;
   }
 
   pre {
-    background-color: #eee;
+    background-color: #e9e9e9;
     color: #555;
     border-radius: 3px;
     padding: 10px;
@@ -175,6 +179,7 @@ $blue:#108ee9;
     code {
       font-size: inherit;
       padding: 0;
+
       background-color: transparent;
     }
   }
@@ -184,6 +189,7 @@ $blue:#108ee9;
     background-color: #eee;
     font-size: 0.9em;
     padding: 2px 4px;
+   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif !important;
   }
 
   blockquote {
@@ -212,6 +218,27 @@ $blue:#108ee9;
   hr {
     border-style: solid;
     border-color: #ccc;
+  }
+  p{
+  	font-size: 15px;
+  }
+  h1{
+	font-size:36px;
+  }
+  h2{
+	font-size:30px;
+  }
+  h3{
+	font-size:24px;
+  }
+  h4{
+	font-size:18px;
+  }
+  h5{
+	font-size:14px;
+  }
+  h6{
+	font-size:12px;
   }
 }
 

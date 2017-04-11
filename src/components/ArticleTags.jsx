@@ -2,7 +2,7 @@ import React ,{ Component }from "react"
 import { connect } from "react-redux"
 import { toJS } from "immutable"
 import ArticleTagItem from "./ArticleTagItem.jsx"
-import { deleteArticleTag ,addArticleTag } from "../actions/index.jsx"
+import { deleteArticleTag , addArticleTag} from "../actions/index.jsx"
 import  "./ArticleTags.scss"
 
 export default class ArticleTags extends Component{

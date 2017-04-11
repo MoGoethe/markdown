@@ -28,6 +28,7 @@ export default class Marke extends Component{
 		const editorDom = this.props.markeState.get("editorDom")
 		const isFullScreen = this.props.markePanelState.get("isFullScreen")
 		const markeModel = this.props.markePanelState.get("model")
+		console.log("run");
 		return(
 			<div className={isFullScreen ? "md-panel md-full-screen" : "md-panel"}>
 				<div className="md-menubar">
