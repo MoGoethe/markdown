@@ -1,6 +1,6 @@
 ## markdown编辑器
 
-#####使用 react+immutable+redux 完成的markdown编辑器
+##### 使用 react+immutable+redux 完成的markdown编辑器
 
 安装依赖
 
